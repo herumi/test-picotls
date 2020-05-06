@@ -9,10 +9,13 @@ int main(int argc, char **argv)
     size_t textlen = 16384;
 
 #ifdef USE_SSCANF
+//	printf("with sscanf\n");
     if (sscanf(argv[1], "%zu", &textlen) != 1) {
         fprintf(stderr, "failed to obtain text length from argument\n");
         return 1;
     }
+#else
+//	printf("without sscanf\n");
 #endif
 
     ptls_fusion_aesgcm_init(&ctx, key);

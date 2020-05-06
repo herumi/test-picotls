@@ -1,0 +1,68 @@
+Ubuntu 18.04.4 LTS + gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
+
+% sudo perf stat ./without-sscanf 16384 2
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+       3919.233288      task-clock (msec)         #    1.000 CPUs utilized
+                 4      context-switches          #    0.001 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                56      page-faults               #    0.014 K/sec
+       13919036381      cycles                    #    3.551 GHz
+       49272383270      instructions              #    3.54  insn per cycle
+        2639518937      branches                  #  673.478 M/sec
+           2317411      branch-misses             #    0.09% of all branches
+
+       3.919738803 seconds time elapsed
+
+% sudo perf stat ./with-sscanf 16384 2
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+       4541.987297      task-clock (msec)         #    1.000 CPUs utilized
+                 3      context-switches          #    0.001 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                58      page-faults               #    0.013 K/sec
+       16099810352      cycles                    #    3.545 GHz
+       49274711183      instructions              #    3.06  insn per cycle
+        2639915404      branches                  #  581.225 M/sec
+           1304982      branch-misses             #    0.05% of all branches
+
+       4.542495890 seconds time elapsed
+-----------------------------------------------------------------------------
+% sudo perf stat ./without-sscanf 16384 2
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+       4632.910570      task-clock (msec)         #    1.000 CPUs utilized
+                 5      context-switches          #    0.001 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                55      page-faults               #    0.012 K/sec
+       16480689254      cycles                    #    3.557 GHz
+       49275561894      instructions              #    2.99  insn per cycle
+        2640334720      branches                  #  569.908 M/sec
+           2198305      branch-misses             #    0.08% of all branches
+
+       4.633478722 seconds time elapsed
+% sudo perf stat ./with-sscanf 16384 2
+
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+       3910.322007      task-clock (msec)         #    1.000 CPUs utilized
+                 4      context-switches          #    0.001 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                60      page-faults               #    0.015 K/sec
+       13885231774      cycles                    #    3.551 GHz
+       49271809137      instructions              #    3.55  insn per cycle
+        2639119201      branches                  #  674.911 M/sec
+           2124218      branch-misses             #    0.08% of all branches
+
+       3.910824690 seconds time elapsed
+-----------------------------------------------------------------------------

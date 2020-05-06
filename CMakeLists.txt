@@ -12,7 +12,7 @@ IF (WITH_DTRACE)
     MESSAGE(STATUS "Enabling USDT support")
 ENDIF ()
 
-SET(CMAKE_C_FLAGS "-std=c99 -Wall -O2 -g ${CC_WARNING_FLAGS} ${CMAKE_C_FLAGS}")
+SET(CMAKE_C_FLAGS "-std=c99 -Wall -O2 -g3 -maes -march=native ${CC_WARNING_FLAGS} ${CMAKE_C_FLAGS}")
 INCLUDE_DIRECTORIES(
     deps/cifra/src/ext
     deps/cifra/src
@@ -37,6 +37,7 @@ SET(MINICRYPTO_LIBRARY_FILES
     deps/cifra/src/sha512.c)
 SET(CORE_FILES
     lib/picotls.c
+    lib/fusion.c
     lib/pembase64.c)
 SET(CORE_TEST_FILES
     t/picotls.c)
@@ -103,6 +104,11 @@ IF (OPENSSL_FOUND AND NOT (OPENSSL_VERSION VERSION_LESS "1.0.1"))
     TARGET_LINK_LIBRARIES(cli picotls-openssl picotls-core)
     ADD_EXECUTABLE(picotls-esni src/esni.c)
     TARGET_LINK_LIBRARIES(picotls-esni picotls-openssl picotls-core ${OPENSSL_LIBRARIES} ${CMAKE_DL_LIBS})
+
+    ADD_EXECUTABLE(without-sscanf without-sscanf.c)
+    ADD_EXECUTABLE(with-sscanf with-sscanf.c)
+    TARGET_LINK_LIBRARIES(without-sscanf picotls-openssl picotls-core picotls-minicrypto)
+    TARGET_LINK_LIBRARIES(with-sscanf picotls-openssl picotls-core picotls-minicrypto)
 
     ADD_EXECUTABLE(test-openssl.t
         ${MINICRYPTO_LIBRARY_FILES}

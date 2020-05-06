@@ -1,0 +1,83 @@
+Ubuntu 19.10 + gcc version 9.2.1 20191008 (Ubuntu 9.2.1-9ubuntu2)
+
+% sudo perf stat ./without-sscanf 16384 2
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           3234.58 msec task-clock                #    1.000 CPUs utilized
+                 6      context-switches          #    0.002 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                59      page-faults               #    0.018 K/sec
+       14817544338      cycles                    #    4.581 GHz
+       46387108718      instructions              #    3.13  insn per cycle
+        2636718740      branches                  #  815.166 M/sec
+           1213221      branch-misses             #    0.05% of all branches
+
+       3.234833024 seconds time elapsed
+
+       3.234832000 seconds user
+       0.000000000 seconds sys
+
+
+% sudo perf stat ./with-sscanf 16384 2
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+           3184.78 msec task-clock                #    1.000 CPUs utilized
+                 4      context-switches          #    0.001 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                61      page-faults               #    0.019 K/sec
+       14568061859      cycles                    #    4.574 GHz
+       46387078550      instructions              #    3.18  insn per cycle
+        2636714068      branches                  #  827.911 M/sec
+           1073760      branch-misses             #    0.04% of all branches
+
+       3.184991138 seconds time elapsed
+
+       3.181054000 seconds user
+       0.003996000 seconds sys
+-----------------------------------------------------------------------------
+% sudo perf stat ./without-sscanf 16384 2
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           3184.50 msec task-clock                #    1.000 CPUs utilized
+                 6      context-switches          #    0.002 K/sec
+                 1      cpu-migrations            #    0.000 K/sec
+                59      page-faults               #    0.019 K/sec
+       14572819936      cycles                    #    4.576 GHz
+       46387045237      instructions              #    3.18  insn per cycle
+        2636708427      branches                  #  827.982 M/sec
+           1745189      branch-misses             #    0.07% of all branches
+
+       3.184773233 seconds time elapsed
+
+       3.184745000 seconds user
+       0.000000000 seconds sys
+
+
+cof:/home/shigeo/Program/kazuho/picotls% sudo perf stat ./with-sscanf 16384 2
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+           3318.09 msec task-clock                #    1.000 CPUs utilized
+                 2      context-switches          #    0.001 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+                61      page-faults               #    0.018 K/sec
+       15200956724      cycles                    #    4.581 GHz
+       46387129489      instructions              #    3.05  insn per cycle
+        2636722092      branches                  #  794.650 M/sec
+           1362127      branch-misses             #    0.05% of all branches
+
+       3.318295510 seconds time elapsed
+
+       3.318334000 seconds user
+       0.000000000 seconds sys
+-----------------------------------------------------------------------------
+

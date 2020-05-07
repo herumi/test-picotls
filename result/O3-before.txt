@@ -1,0 +1,105 @@
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           7424591      frontend_retired.dsb_miss                                   
+
+       3.538565322 seconds time elapsed
+
+       3.534467000 seconds user
+       0.003998000 seconds sys
+
+
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           5322679      frontend_retired.dsb_miss                                   
+
+       3.535403172 seconds time elapsed
+
+       3.535296000 seconds user
+       0.000000000 seconds sys
+
+
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           7574030      frontend_retired.dsb_miss                                   
+
+       3.541014659 seconds time elapsed
+
+       3.540886000 seconds user
+       0.000000000 seconds sys
+
+
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           7990775      frontend_retired.dsb_miss                                   
+
+       3.538672179 seconds time elapsed
+
+       3.538570000 seconds user
+       0.000000000 seconds sys
+
+-----------------------------------------------------------------
+
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+            265699      frontend_retired.dsb_miss                                   
+
+       2.934843821 seconds time elapsed
+
+       2.934765000 seconds user
+       0.000000000 seconds sys
+
+
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+            324184      frontend_retired.dsb_miss                                   
+
+       3.125904671 seconds time elapsed
+
+       3.125872000 seconds user
+       0.000000000 seconds sys
+
+
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+            226378      frontend_retired.dsb_miss                                   
+
+       3.144923317 seconds time elapsed
+
+       3.144837000 seconds user
+       0.000000000 seconds sys
+
+
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+            253329      frontend_retired.dsb_miss                                   
+
+       3.142353185 seconds time elapsed
+
+       3.142271000 seconds user
+       0.000000000 seconds sys
+
+

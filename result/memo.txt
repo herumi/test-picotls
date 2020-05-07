@@ -1,0 +1,28 @@
+sudo perf stat -e frontend_retired.dsb_miss ./with-sscanf 16384 2
+
+with sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+         169123358      frontend_retired.dsb_miss
+
+       4.309674713 seconds time elapsed
+
+       4.309532000 seconds user
+       0.000000000 seconds sys
+
+sudo perf stat -e frontend_retired.dsb_miss ./without-sscanf 16384 2
+without sscanf
+f9ff3fa1f8bade711aa97c0f652d67fe
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           7883652      frontend_retired.dsb_miss
+
+       3.962337003 seconds time elapsed
+
+       3.962204000 seconds user
+       0.000000000 seconds sys
+
+

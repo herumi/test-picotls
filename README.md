@@ -1,3 +1,5 @@
+# This repository is copied from https://github.com/h2o/picotls/ to investigate some problems. See the original repository.
+
 picotls
 ===
 

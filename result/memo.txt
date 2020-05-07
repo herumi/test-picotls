@@ -25,4 +25,30 @@ f9ff3fa1f8bade711aa97c0f652d67fe
        3.962204000 seconds user
        0.000000000 seconds sys
 
+--------------------------------------------------------------------
+after unrolling
 
+% sudo perf stat -e frontend_retired.dsb_miss ./with-sscanf 16384 2
+e9b0bd4e7a56fe00bd00486d18ad6fd1
+
+ Performance counter stats for './with-sscanf 16384 2':
+
+            369539      frontend_retired.dsb_miss
+
+       3.013689269 seconds time elapsed
+
+       3.013634000 seconds user
+       0.000000000 seconds sys
+
+
+% sudo perf stat -e frontend_retired.dsb_miss ./without-sscanf 16384 2
+e9b0bd4e7a56fe00bd00486d18ad6fd1
+
+ Performance counter stats for './without-sscanf 16384 2':
+
+           1116113      frontend_retired.dsb_miss
+
+       3.079822192 seconds time elapsed
+
+       3.079716000 seconds user
+       0.000000000 seconds sys
